@@ -1,0 +1,50 @@
+/* Vivid service cards on a quiet canvas. Typography is entirely local. */
+.brutalist-theme {
+  --brutalist-canvas: #f5f5f5;
+  --brutalist-panel: #fff;
+  --brutalist-card: #fff;
+  --brutalist-ink: #000;
+  --brutalist-muted: #454545;
+  --brutalist-line: #a6a6a6;
+  --brutalist-track: #ffffff80;
+  --brutalist-yellow: #ffe14a;
+  --brutalist-green: #2346d8;
+  --brutalist-green-fill: #ffe14a;
+  --brutalist-green-soft: #dbe6ff;
+  --brutalist-accent-text: #000;
+  --brutalist-red: #a82121;
+  --brutalist-red-soft: #ffe3e3;
+  --brutalist-amber: #684600;
+  --brutalist-amber-soft: #fff0bf;
+  --brutalist-font: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+  --brutalist-display:
+    "Arial Black", "Microsoft YaHei", "PingFang SC", sans-serif;
+  --brutalist-focus: 3px solid #2346d8;
+  --brutalist-tone-0: #a9caff;
+  --brutalist-tone-1: #ffa9d4;
+  --brutalist-tone-2: #a6e8c3;
+  --brutalist-tone-3: #ffe14a;
+  color-scheme: light;
+}
+.brutalist-theme[data-color-scheme="dark"] {
+  --brutalist-canvas: #202437;
+  --brutalist-panel: #30364a;
+  --brutalist-card: #30364a;
+  --brutalist-ink: #fff;
+  --brutalist-muted: #e0e1e8;
+  --brutalist-line: #7b839a;
+  --brutalist-track: #00000040;
+  --brutalist-green: #a9caff;
+  --brutalist-green-soft: #3a4969;
+  --brutalist-red: #ffb3b3;
+  --brutalist-red-soft: #532e3a;
+  --brutalist-amber: #ffe14a;
+  --brutalist-amber-soft: #4a442c;
+  --brutalist-focus: 3px solid #ffe14a;
+  /* Saturated enough to tell apart at a glance, still 4.5:1 under white digits. */
+  --brutalist-tone-0: #3355a8;
+  --brutalist-tone-1: #9a2f6c;
+  --brutalist-tone-2: #1f7a52;
+  --brutalist-tone-3: #8a6d00;
+  color-scheme: dark;
+}

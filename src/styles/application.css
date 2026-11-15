@@ -1,0 +1,274 @@
+.brutalist-theme .brutalist-notice {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  top: 50%;
+  bottom: auto;
+  width: max-content;
+  max-width: min(520px, calc(100vw - 32px));
+  min-height: 48px;
+  padding: 14px 20px;
+  transform: translate(-50%, -50%);
+  border: 2px solid var(--brutalist-ink);
+  border-radius: 0;
+  background: var(--brutalist-panel);
+  color: var(--brutalist-ink);
+  box-shadow: 5px 5px 0 #000;
+  text-align: center;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+/* Inverted ink: a yellow toast disappeared against the yellow header and row numbers. */
+.brutalist-theme .brutalist-notice[data-kind="success"] {
+  background: var(--brutalist-ink);
+  color: var(--brutalist-panel);
+  border-color: var(--brutalist-ink);
+  box-shadow: 5px 5px 0 var(--brutalist-yellow);
+  font-weight: 800;
+}
+.brutalist-theme .brutalist-notice[data-kind="error"] {
+  border-color: var(--brutalist-red);
+}
+.brutalist-theme .brutalist-states {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.brutalist-theme .brutalist-states:empty {
+  display: none;
+}
+.brutalist-theme .brutalist-state {
+  padding: 8px 14px;
+  border: 1px solid var(--brutalist-line);
+  border-radius: 0;
+  color: var(--brutalist-muted);
+  font-size: 13px;
+}
+.brutalist-theme .brutalist-operation-region,
+.brutalist-theme .brutalist-queue-region {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 2px solid var(--brutalist-amber);
+  border-radius: 0;
+  background: var(--brutalist-amber-soft);
+}
+.brutalist-theme
+  :is(.brutalist-operation-region, .brutalist-queue-region)
+  > .brutalist-group-title {
+  margin-bottom: 8px;
+  color: var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-operation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.brutalist-theme .brutalist-operation > * {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.brutalist-theme .brutalist-queue-region > .brutalist-button {
+  margin: 4px 6px 4px 0;
+}
+.brutalist-theme .brutalist-management-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.brutalist-theme .brutalist-management-groups {
+  display: grid;
+  gap: 16px;
+}
+.brutalist-theme .brutalist-management-group {
+  padding: 8px 20px;
+  border-radius: 0;
+  background: var(--brutalist-card);
+}
+.brutalist-theme .brutalist-group-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 4px;
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+.brutalist-theme .brutalist-group-toggle::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-size: 26px;
+  font-weight: 400;
+}
+.brutalist-theme .brutalist-group-toggle[aria-expanded="true"]::after {
+  content: "−";
+}
+.brutalist-theme .brutalist-management-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding-bottom: 16px;
+}
+.brutalist-theme .brutalist-feature,
+.brutalist-theme .brutalist-management-list > .brutalist-button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  min-height: 48px;
+  padding: 12px;
+  border: 1px solid var(--brutalist-line);
+  background: var(--brutalist-panel);
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-feature:not(:disabled):hover {
+    background: var(--brutalist-green-soft);
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-feature:not(:disabled):active {
+    background: var(--brutalist-green-soft);
+  }
+}
+.brutalist-theme .brutalist-feature small {
+  color: var(--brutalist-muted);
+  font-size: 12px;
+}
+@media (max-width: 1050px) {
+  .brutalist-theme .brutalist-display-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .brutalist-theme .brutalist-topbar-inner {
+    padding: 14px 24px;
+    gap: 20px;
+  }
+  .brutalist-theme .brutalist-topbar-actions {
+    gap: 8px;
+  }
+  .brutalist-theme .brutalist-topbar-actions .brutalist-button {
+    padding-inline: 12px;
+    font-size: 13px;
+  }
+  .brutalist-theme .brutalist-workspace {
+    padding: 24px;
+  }
+}
+@media (max-width: 600px) {
+  .brutalist-theme .brutalist-topbar-inner {
+    gap: 12px;
+    padding: 14px 20px;
+  }
+  .brutalist-theme .brutalist-topbar-actions {
+    justify-content: flex-end;
+    gap: 4px;
+  }
+  .brutalist-theme .brutalist-topbar-actions .brutalist-button {
+    padding: 8px 10px;
+  }
+  .brutalist-theme .brutalist-workspace {
+    padding: 22px 20px 24px;
+  }
+  .brutalist-theme .brutalist-section-title {
+    font-size: 26px;
+  }
+  .brutalist-theme .brutalist-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+  .brutalist-theme .brutalist-display-panel {
+    padding: 14px;
+  }
+  .brutalist-theme .brutalist-management-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .brutalist-theme .brutalist-footer {
+    margin-top: 32px;
+  }
+}
+@media (max-width: 360px) {
+  .brutalist-theme .brutalist-topbar-inner,
+  .brutalist-theme .brutalist-workspace {
+    padding-inline: 16px;
+  }
+  .brutalist-theme .brutalist-topbar-actions {
+    gap: 0;
+  }
+  .brutalist-theme .brutalist-topbar-actions .brutalist-button {
+    padding-inline: 8px;
+    font-size: 12px;
+  }
+  .brutalist-theme .brutalist-display-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.brutalist-theme[data-reduced-motion="true"] *,
+.brutalist-theme[data-reduced-motion="true"] *::before,
+.brutalist-theme[data-reduced-motion="true"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brutalist-theme *,
+  .brutalist-theme *::before,
+  .brutalist-theme *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media (forced-colors: active) {
+  .brutalist-theme
+    :is(
+      .brutalist-card,
+      .brutalist-button,
+      .brutalist-menu-popover,
+      .brutalist-notice
+    ) {
+    border-color: ButtonText;
+    box-shadow: none;
+  }
+  .brutalist-theme
+    .brutalist-button:is([aria-pressed="true"], [aria-expanded="true"]) {
+    outline: 2px solid Highlight;
+    outline-offset: -3px;
+  }
+  .brutalist-theme .brutalist-copy-code:disabled {
+    color: GrayText;
+  }
+  .brutalist-theme .brutalist-progress {
+    background: Canvas;
+    outline: 1px solid CanvasText;
+  }
+  .brutalist-theme .brutalist-progress-fill {
+    background: Highlight;
+    forced-color-adjust: none;
+  }
+}
+@media (max-width: 600px) {
+  .brutalist-theme .brutalist-topbar-actions {
+    width: auto;
+  }
+}
+
+/* The whole card copies its current code. */
+.brutalist-theme .brutalist-card {
+  cursor: pointer;
+}

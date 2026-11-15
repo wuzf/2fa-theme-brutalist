@@ -1,0 +1,667 @@
+/* Typographic ledger: accounts are full-width ruled entries, not cards. */
+.brutalist-theme .brutalist-topbar {
+  border-bottom: 0;
+}
+/* A short masthead: the list, not the brand, should fill the first screen. */
+.brutalist-theme .brutalist-topbar-inner {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  min-height: 0;
+  padding: 16px 40px;
+}
+.brutalist-theme .brutalist-brand {
+  margin-right: auto;
+}
+.brutalist-theme .brutalist-brand-name {
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+}
+.brutalist-theme .brutalist-topbar .brutalist-button.is-quiet {
+  box-shadow: 5px 5px 0 #000;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Host entries sit in the masthead as blocks beside Manage. */
+.brutalist-theme .brutalist-rail:not(:has(button)) {
+  display: none;
+}
+.brutalist-theme .brutalist-rail-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.brutalist-theme .brutalist-rail-command {
+  flex: 0 0 auto;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 3px solid #000;
+  background: #fff;
+  color: #000;
+  box-shadow: 5px 5px 0 #000;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-rail-command:not(:disabled):hover {
+    background: #a9caff;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-rail-command:not(:disabled):active {
+    background: #a9caff;
+  }
+}
+.brutalist-theme .brutalist-rail-command:focus-visible {
+  outline: 3px solid #2346d8;
+  outline-offset: 3px;
+}
+
+/* Search and service tabs stay pinned above the scrolling ledger. */
+.brutalist-theme .brutalist-filters {
+  position: sticky;
+  z-index: 40; /* above a card with its menu open, below the notice */
+  top: 0;
+  max-height: 100vh;
+  margin: -12px 0 24px;
+  padding-top: 12px;
+  overflow-y: auto;
+  background: var(--brutalist-canvas);
+  scrollbar-width: none;
+}
+
+/* Search is an oversized underlined prompt. */
+.brutalist-theme .brutalist-toolbar {
+  align-items: end;
+  gap: 12px 20px;
+  margin-bottom: 10px;
+}
+.brutalist-theme .brutalist-search {
+  min-height: 56px;
+  padding-left: 0;
+  border: 0;
+  border-bottom: 5px solid var(--brutalist-ink);
+  background: transparent;
+  box-shadow: none;
+}
+.brutalist-theme .brutalist-search:focus-within {
+  outline: 0;
+  border-bottom-color: var(--brutalist-green);
+}
+.brutalist-theme .brutalist-prompt {
+  flex: 0 0 auto;
+  padding-right: 12px;
+  font: 900 30px/1 var(--brutalist-display);
+}
+.brutalist-theme .brutalist-search input {
+  min-height: 50px;
+  font: 900 24px/1.1 var(--brutalist-display);
+  letter-spacing: -0.02em;
+}
+.brutalist-theme .brutalist-search input::placeholder {
+  color: var(--brutalist-line);
+}
+.brutalist-theme .brutalist-toolbar [data-action="display"] {
+  min-height: 48px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* Service filter as a row of bold text tabs. */
+.brutalist-theme .brutalist-service-tabs {
+  display: flex;
+  gap: 0;
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 3px solid var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-service-tab {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: baseline;
+  gap: 6px;
+  max-width: 260px;
+  min-height: 44px;
+  padding: 8px 16px 6px;
+  border: 0;
+  background: transparent;
+  color: var(--brutalist-ink);
+  font-weight: 900;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.brutalist-theme .brutalist-service-tab > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.brutalist-theme .brutalist-service-tab small {
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-service-tab:not(:disabled):hover {
+    background: var(--brutalist-yellow);
+    color: #000;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-service-tab:not(:disabled):active {
+    background: var(--brutalist-yellow);
+    color: #000;
+  }
+}
+.brutalist-theme .brutalist-service-tab[aria-pressed="true"] {
+  background: var(--brutalist-ink);
+  color: var(--brutalist-canvas);
+}
+.brutalist-theme .brutalist-service-tab:focus-visible {
+  outline-offset: -4px;
+}
+
+/* Sections: a heavy rule, a running count and column heads. */
+.brutalist-theme .brutalist-group + .brutalist-group {
+  margin-top: 44px;
+}
+.brutalist-theme .brutalist-group-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0;
+  padding: 10px 0 8px;
+  border-top: 8px solid var(--brutalist-ink);
+  color: var(--brutalist-ink);
+  font: 900 26px/1.1 var(--brutalist-display);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+/* The management menu's groups are headed in the same face and capitals. */
+.brutalist-theme .brutalist-group-toggle {
+  font-family: var(--brutalist-display);
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.brutalist-theme .brutalist-group-title::after {
+  content: attr(data-count);
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+}
+.brutalist-theme .brutalist-ledger-head {
+  display: grid;
+  grid-template-columns: 72px minmax(250px, 340px) 150px minmax(0, 1fr);
+  border-top: 3px solid var(--brutalist-ink);
+  border-bottom: 1px solid var(--brutalist-ink);
+  color: var(--brutalist-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.brutalist-theme .brutalist-group-title:not([hidden]) + .brutalist-ledger-head {
+  border-top-width: 1px;
+}
+.brutalist-theme .brutalist-ledger-head > span {
+  padding: 6px 16px;
+}
+.brutalist-theme .brutalist-ledger-head > span:first-child {
+  padding-left: 0;
+}
+
+/* Entries are ledger lines. */
+.brutalist-theme .brutalist-account-grid {
+  display: block;
+}
+.brutalist-theme .brutalist-card,
+.brutalist-theme[data-density="compact"] .brutalist-card {
+  display: grid;
+  grid-template-columns:
+    72px minmax(250px, 340px) 150px 52px minmax(0, 1fr)
+    44px;
+  grid-template-areas: "index code time mark identity menu";
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-bottom: 3px solid var(--brutalist-ink);
+  box-shadow: none;
+  background: transparent;
+}
+.brutalist-theme .brutalist-card[data-tone] {
+  background: transparent;
+}
+/* Only a mouse lights the card, and only where a click copies the current code:
+   not on the menu (the card flashed when it was opened) or another button such as
+   "next", which copies the next code. Touch keeps the hover after a tap. */
+@media (hover: hover) {
+  .brutalist-theme
+    .brutalist-card:hover:not(:has(.brutalist-account-menu:hover)):not(
+      :has(button:not([data-action="copy"]):hover)
+    ) {
+    background: var(--brutalist-panel);
+  }
+}
+.brutalist-theme .brutalist-card:has(:focus-visible) {
+  background: var(--brutalist-panel);
+}
+.brutalist-theme .brutalist-card-header {
+  display: contents;
+}
+.brutalist-theme .brutalist-row-index {
+  grid-area: index;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 10px;
+  border-right: 3px solid var(--brutalist-ink);
+  font: 900 26px/1 var(--brutalist-display);
+  font-variant-numeric: tabular-nums;
+}
+.brutalist-theme .brutalist-card[data-tone="0"] .brutalist-row-index {
+  background: var(--brutalist-tone-0);
+}
+.brutalist-theme .brutalist-card[data-tone="1"] .brutalist-row-index {
+  background: var(--brutalist-tone-1);
+}
+.brutalist-theme .brutalist-card[data-tone="2"] .brutalist-row-index {
+  background: var(--brutalist-tone-2);
+}
+.brutalist-theme .brutalist-card[data-tone="3"] .brutalist-row-index {
+  background: var(--brutalist-tone-3);
+}
+.brutalist-theme .brutalist-codes {
+  grid-area: code;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 16px;
+  border-right: 1px solid var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-copy-code {
+  justify-content: flex-start;
+  gap: 14px;
+  min-height: 56px;
+  padding: 0;
+}
+.brutalist-theme .brutalist-otp-value {
+  font: 900 52px/1 var(--brutalist-display);
+  letter-spacing: 0.02em;
+}
+.brutalist-theme .brutalist-otp-value[data-digits="8"] {
+  font-size: 42px;
+}
+.brutalist-theme
+  .brutalist-otp-value:is([data-digits="9"], [data-digits="10"]) {
+  font-size: 34px;
+}
+.brutalist-theme .brutalist-copy-symbol {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  padding: 3px 8px;
+  border: 2px solid var(--brutalist-ink);
+  background: var(--brutalist-yellow);
+  color: #000;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+}
+@media (hover: hover) {
+  .brutalist-theme
+    .brutalist-copy-code:is(:hover, :focus-visible):not(:disabled)
+    .brutalist-copy-symbol {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme
+    .brutalist-copy-code:is(:active, :focus-visible):not(:disabled)
+    .brutalist-copy-symbol {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-copy-symbol {
+    opacity: 1;
+  }
+}
+.brutalist-theme .brutalist-copy-code:focus-visible {
+  outline-offset: 2px;
+}
+.brutalist-theme .brutalist-otp-next {
+  min-height: 26px;
+  gap: 6px;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.brutalist-theme .brutalist-next-value {
+  font-weight: 900;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+.brutalist-theme .brutalist-service-mark {
+  grid-area: mark;
+  justify-self: end;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-width: 2px;
+  font-size: 17px;
+}
+.brutalist-theme .brutalist-account-identity {
+  grid-area: identity;
+  padding: 12px 16px;
+}
+.brutalist-theme .brutalist-account-name {
+  font: 900 22px/1.15 var(--brutalist-display);
+  letter-spacing: -0.01em;
+}
+.brutalist-theme .brutalist-account-address {
+  margin-top: 4px;
+  font-size: 13px;
+}
+.brutalist-theme .brutalist-hotp-label {
+  margin-top: 6px;
+  border: 2px solid var(--brutalist-ink);
+  color: var(--brutalist-ink);
+  font-weight: 900;
+}
+.brutalist-theme .brutalist-expiry {
+  grid-area: time;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+  max-width: none;
+  margin: 0;
+  padding: 10px 16px;
+  border-right: 1px solid var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-expiry-label {
+  order: 0;
+  justify-content: flex-start;
+}
+.brutalist-theme .brutalist-expiry-label strong {
+  color: var(--brutalist-ink);
+  font: 900 32px/1 var(--brutalist-display);
+  text-align: left;
+}
+.brutalist-theme .brutalist-progress {
+  flex: none;
+  width: 100%;
+  max-width: 120px;
+  height: 10px;
+  border: 2px solid var(--brutalist-ink);
+  background: transparent;
+}
+.brutalist-theme .brutalist-progress-fill {
+  display: block;
+  background: var(--brutalist-ink);
+}
+.brutalist-theme
+  .brutalist-expiry[data-expiring="true"]
+  :is(.brutalist-progress-fill, .brutalist-expiry-label strong) {
+  background: var(--brutalist-red);
+}
+.brutalist-theme
+  .brutalist-expiry[data-expiring="true"]
+  .brutalist-expiry-label
+  strong {
+  background: transparent;
+  color: var(--brutalist-red);
+}
+.brutalist-theme .brutalist-account-menu {
+  position: relative;
+  top: auto;
+  right: auto;
+  grid-area: menu;
+  margin: 0;
+}
+
+/* Compact rows are about 75px high instead of about 105px. */
+.brutalist-theme[data-density="compact"] .brutalist-row-index {
+  padding: 10px;
+  font-size: 20px;
+}
+.brutalist-theme[data-density="compact"]
+  :is(.brutalist-codes, .brutalist-expiry) {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-copy-code {
+  min-height: 42px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-otp-value {
+  font-size: 38px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-otp-value[data-digits="8"] {
+  font-size: 32px;
+}
+.brutalist-theme[data-density="compact"]
+  .brutalist-otp-value:is([data-digits="9"], [data-digits="10"]) {
+  font-size: 26px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-otp-next {
+  min-height: 20px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-account-identity {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-account-name {
+  font-size: 18px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-account-address {
+  margin-top: 2px;
+  font-size: 12px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-expiry-label strong {
+  font-size: 24px;
+}
+.brutalist-theme[data-density="compact"] .brutalist-progress {
+  height: 8px;
+}
+
+.brutalist-theme .brutalist-empty-state {
+  border: 5px solid var(--brutalist-ink);
+  text-align: left;
+}
+.brutalist-theme .brutalist-empty-state h3 {
+  font: 900 40px/1 var(--brutalist-display);
+  text-transform: uppercase;
+}
+.brutalist-theme .brutalist-empty-state p {
+  margin-inline: 0;
+}
+
+@media (max-width: 1050px) {
+  .brutalist-theme .brutalist-card,
+  .brutalist-theme[data-density="compact"] .brutalist-card {
+    grid-template-columns:
+      60px minmax(220px, 280px) 124px 48px minmax(0, 1fr)
+      44px;
+  }
+  .brutalist-theme .brutalist-ledger-head {
+    grid-template-columns: 60px minmax(220px, 280px) 124px minmax(0, 1fr);
+  }
+  .brutalist-theme .brutalist-otp-value {
+    font-size: 44px;
+  }
+}
+@media (max-width: 760px) {
+  .brutalist-theme .brutalist-topbar-inner {
+    gap: 10px 12px;
+    padding: 14px 24px;
+  }
+  .brutalist-theme .brutalist-ledger-head {
+    display: none;
+  }
+  .brutalist-theme .brutalist-card,
+  .brutalist-theme[data-density="compact"] .brutalist-card {
+    grid-template-columns: 40px 44px minmax(0, 1fr) 44px;
+    grid-template-areas:
+      "index mark identity menu"
+      "index code code code"
+      "index time time time";
+    padding: 0;
+  }
+  .brutalist-theme .brutalist-row-index {
+    grid-row: 1 / -1;
+    padding: 12px 4px;
+    font-size: 15px;
+  }
+  .brutalist-theme .brutalist-service-mark {
+    justify-self: center;
+  }
+  .brutalist-theme .brutalist-account-identity {
+    padding: 10px 8px 2px 4px;
+  }
+  .brutalist-theme .brutalist-codes {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 12px 0 14px;
+    border-right: 0;
+  }
+  .brutalist-theme .brutalist-copy-code {
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+  }
+  .brutalist-theme .brutalist-otp-value {
+    font-size: 44px;
+  }
+  .brutalist-theme .brutalist-otp-next {
+    min-height: 28px;
+  }
+  .brutalist-theme .brutalist-copy-symbol {
+    opacity: 1;
+  }
+  .brutalist-theme .brutalist-expiry,
+  .brutalist-theme[data-density="compact"] .brutalist-expiry {
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px 10px 14px;
+    border-right: 0;
+  }
+  .brutalist-theme .brutalist-expiry-label strong,
+  .brutalist-theme[data-density="compact"] .brutalist-expiry-label strong {
+    font-size: 20px;
+  }
+  .brutalist-theme[data-density="compact"] .brutalist-row-index {
+    padding: 10px 4px;
+    font-size: 15px;
+  }
+  .brutalist-theme[data-density="compact"] .brutalist-account-identity {
+    padding-top: 8px;
+    padding-bottom: 0;
+  }
+  .brutalist-theme[data-density="compact"] .brutalist-codes {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .brutalist-theme[data-density="compact"] .brutalist-copy-code {
+    min-height: 44px;
+  }
+  .brutalist-theme[data-density="compact"] .brutalist-otp-value {
+    font-size: 36px;
+  }
+  .brutalist-theme[data-density="compact"] .brutalist-otp-next {
+    min-height: 24px;
+  }
+  .brutalist-theme .brutalist-progress {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+  .brutalist-theme .brutalist-progress-fill {
+    margin-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  .brutalist-theme .brutalist-topbar-inner {
+    padding: 12px 20px;
+  }
+  .brutalist-theme .brutalist-rail-command {
+    padding: 0 12px;
+    font-size: 13px;
+  }
+  .brutalist-theme .brutalist-search {
+    min-height: 48px;
+  }
+  .brutalist-theme .brutalist-prompt {
+    font-size: 24px;
+  }
+  .brutalist-theme .brutalist-search input {
+    min-height: 44px;
+    font-size: 20px;
+  }
+  .brutalist-theme .brutalist-toolbar [data-action="display"] {
+    min-height: 44px;
+  }
+  .brutalist-theme .brutalist-group-title {
+    font-size: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .brutalist-theme .brutalist-otp-value[data-digits="8"] {
+    font-size: 36px;
+  }
+  .brutalist-theme[data-density="compact"]
+    .brutalist-otp-value[data-digits="8"] {
+    font-size: 30px;
+  }
+  .brutalist-theme
+    .brutalist-otp-value:is([data-digits="9"], [data-digits="10"]) {
+    font-size: 28px;
+  }
+  .brutalist-theme[data-density="compact"]
+    .brutalist-otp-value:is([data-digits="9"], [data-digits="10"]) {
+    font-size: 24px;
+  }
+}
+
+/* Copying presses the card, like the built-in view. The card copies from anywhere but
+   its menu and other controls (copyFromCard), so those do not press it. */
+.brutalist-theme
+  .brutalist-card:active:not(
+    :has(
+      .brutalist-account-menu :active,
+      :is(
+        a,
+        input,
+        select,
+        textarea,
+        label,
+        button:not([data-action="copy"], [data-action="next"])
+      ):active
+    )
+  ) {
+  background: var(--brutalist-green-soft);
+  outline: var(--brutalist-focus);
+  outline-offset: -3px;
+}
+
+/* The browser's tap highlight is a square over rounded controls; pressing
+   shows the control's own hover look instead (@media (hover: none) twins). */
+.brutalist-theme {
+  -webkit-tap-highlight-color: transparent;
+}

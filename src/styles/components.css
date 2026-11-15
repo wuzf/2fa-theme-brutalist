@@ -1,0 +1,801 @@
+.brutalist-theme,
+.brutalist-theme *,
+.brutalist-theme *::before,
+.brutalist-theme *::after {
+  box-sizing: border-box;
+}
+.brutalist-theme {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 100svh;
+  background: var(--brutalist-canvas);
+  color: var(--brutalist-ink);
+  font: 15px/1.6 var(--brutalist-font);
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+}
+.brutalist-theme [hidden] {
+  display: none !important;
+}
+.brutalist-theme :where(h1, h2, h3, p, ul) {
+  margin: 0;
+}
+.brutalist-theme :where(button, input, select, textarea) {
+  max-width: 100%;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+}
+.brutalist-theme :where(button) {
+  overflow-wrap: anywhere;
+}
+.brutalist-theme
+  :where(button, a, input, select, textarea, summary):focus-visible {
+  outline: var(--brutalist-focus);
+  outline-offset: 4px;
+}
+.brutalist-theme :where(a) {
+  color: inherit;
+  text-underline-offset: 4px;
+}
+.brutalist-theme ::selection {
+  background: var(--brutalist-yellow);
+  color: #000;
+}
+.brutalist-theme .brutalist-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.brutalist-theme .brutalist-skip-link {
+  position: fixed;
+  z-index: 10010;
+  top: 12px;
+  left: 12px;
+  min-height: 44px;
+  padding: 10px 16px;
+  transform: translateY(-200%);
+  border: 2px solid #000;
+  background: var(--brutalist-yellow);
+  color: #000;
+}
+.brutalist-theme .brutalist-skip-link:focus {
+  transform: none;
+}
+.brutalist-theme .brutalist-shell {
+  width: 100%;
+  min-width: 0;
+}
+.brutalist-theme .brutalist-topbar {
+  background: var(--brutalist-yellow);
+  color: #000;
+  border-bottom: 3px solid #000;
+}
+.brutalist-theme .brutalist-topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  max-width: 1400px; /* the default interface's width */
+  min-height: 108px;
+  margin-inline: auto;
+  padding: 14px 40px;
+}
+.brutalist-theme .brutalist-brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+}
+.brutalist-theme .brutalist-brand > div {
+  min-width: 0;
+}
+.brutalist-theme .brutalist-brand-name {
+  font: 900 54px/1.05 var(--brutalist-display);
+  letter-spacing: -1.5px;
+  overflow-wrap: anywhere;
+}
+.brutalist-theme .brutalist-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.brutalist-theme .brutalist-topbar-actions {
+  flex: 0 0 auto;
+  justify-content: flex-end;
+}
+.brutalist-theme .brutalist-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 44px;
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 3px solid var(--brutalist-ink);
+  background: var(--brutalist-panel);
+  color: var(--brutalist-ink);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-button:not(:disabled):hover {
+    background: var(--brutalist-card);
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-button:not(:disabled):active {
+    background: var(--brutalist-card);
+  }
+}
+.brutalist-theme .brutalist-button.is-primary {
+  border-color: #000;
+  background: var(--brutalist-yellow);
+  color: #000;
+  box-shadow: 4px 4px 0 #000;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-button.is-primary:not(:disabled):hover {
+    background: #ffed88;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-button.is-primary:not(:disabled):active {
+    background: #ffed88;
+  }
+}
+.brutalist-theme .brutalist-button.is-primary:not(:disabled):active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #000;
+}
+.brutalist-theme .brutalist-button[aria-pressed="true"],
+.brutalist-theme .brutalist-button[aria-expanded="true"] {
+  background: var(--brutalist-green-soft);
+}
+.brutalist-theme .brutalist-button.is-quiet {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+.brutalist-theme .brutalist-button.is-icon {
+  flex: 0 0 44px;
+  width: 44px;
+  padding: 8px;
+  font-size: 23px;
+}
+.brutalist-theme .brutalist-topbar .brutalist-button.is-quiet {
+  color: #000;
+  background: #fff;
+  border: 3px solid #000;
+  box-shadow: 4px 4px 0 #000;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-topbar .brutalist-button.is-quiet:hover {
+    background: #a9caff;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-topbar .brutalist-button.is-quiet:active {
+    background: #a9caff;
+  }
+}
+.brutalist-theme .brutalist-topbar .brutalist-button.is-primary {
+  box-shadow: 0 4px 0#fff;
+}
+.brutalist-theme .brutalist-topbar :focus-visible {
+  outline-color: #2346d8;
+}
+.brutalist-theme :where(button):disabled {
+  cursor: not-allowed;
+}
+.brutalist-theme
+  :is(.brutalist-button, .brutalist-feature, .brutalist-menu-item):disabled {
+  opacity: 0.5;
+}
+.brutalist-theme .brutalist-workspace {
+  min-width: 0;
+  max-width: 1400px; /* the default interface's width */
+  margin-inline: auto;
+  padding: 36px 40px;
+}
+.brutalist-theme .brutalist-section-title {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: -1px;
+}
+.brutalist-theme .brutalist-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.brutalist-theme .brutalist-search {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  min-height: 50px;
+  padding-left: 18px;
+  border: 3px solid var(--brutalist-ink);
+  border-radius: 0;
+  background: var(--brutalist-panel);
+}
+.brutalist-theme .brutalist-search:focus-within {
+  outline: var(--brutalist-focus);
+  outline-offset: 3px;
+}
+.brutalist-theme .brutalist-search input {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+.brutalist-theme input::placeholder {
+  color: var(--brutalist-muted);
+  opacity: 1;
+}
+.brutalist-theme .brutalist-toolbar-controls,
+.brutalist-theme .brutalist-display-disclosure {
+  display: contents;
+}
+.brutalist-theme .brutalist-select-field {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  color: var(--brutalist-muted);
+  font-size: 13px;
+}
+.brutalist-theme .brutalist-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 12px;
+  border: 3px solid var(--brutalist-ink);
+  background: var(--brutalist-panel);
+  color: var(--brutalist-ink);
+  font-size: 14px;
+  text-overflow: ellipsis;
+}
+.brutalist-theme .brutalist-display-panel {
+  display: grid;
+  grid-column: 1/-1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 14px;
+  margin-top: 4px;
+  padding: 20px;
+  border: 1px solid var(--brutalist-line);
+  border-radius: 0;
+  background: var(--brutalist-card);
+}
+.brutalist-theme .brutalist-section-description {
+  grid-column: 1/-1;
+  color: var(--brutalist-muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.brutalist-theme .brutalist-group + .brutalist-group {
+  margin-top: 28px;
+}
+.brutalist-theme .brutalist-group-title {
+  margin: 0 0 14px;
+  color: var(--brutalist-muted);
+  font-size: 16px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.brutalist-theme .brutalist-account-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+}
+.brutalist-theme .brutalist-card {
+  position: relative;
+  min-width: 0;
+  padding: 20px;
+  border: 3px solid var(--brutalist-ink);
+  box-shadow: 6px 6px 0 #000;
+  border-radius: 0;
+  background: var(--brutalist-card);
+}
+/* Keyboard focus only: a click or tap on the menu must not restyle the card. */
+.brutalist-theme .brutalist-card:has(:focus-visible) {
+  border-color: var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-card[data-menu-open="true"] {
+  z-index: 30;
+}
+.brutalist-theme .brutalist-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.brutalist-theme .brutalist-service-mark {
+  display: grid;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 3px solid var(--brutalist-ink);
+  border-radius: 0;
+  background: var(--brutalist-panel);
+  font-size: 21px;
+  font-weight: 900;
+}
+.brutalist-theme .brutalist-account-identity {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.brutalist-theme .brutalist-account-name {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.brutalist-theme .brutalist-account-address {
+  margin-top: 3px;
+  color: var(--brutalist-muted);
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.brutalist-theme .brutalist-account-menu {
+  position: relative;
+  flex: 0 0 44px;
+  margin-right: -12px;
+}
+.brutalist-theme .brutalist-account-menu > .brutalist-button {
+  position: relative;
+  border-color: transparent;
+  background: transparent;
+  /* The ⋯ is drawn: a font glyph sits on the baseline, off centre. */
+  font-size: 0;
+}
+.brutalist-theme .brutalist-account-menu > .brutalist-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow:
+    -6px 0 0 currentColor,
+    6px 0 0 currentColor;
+  transform: translate(-50%, -50%);
+}
+@media (hover: hover) {
+  .brutalist-theme
+    .brutalist-account-menu
+    > .brutalist-button:not(:disabled):hover {
+    border-color: transparent;
+    background: transparent;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme
+    .brutalist-account-menu
+    > .brutalist-button:not(:disabled):active {
+    border-color: transparent;
+    background: transparent;
+  }
+}
+.brutalist-theme .brutalist-menu-popover {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 4px);
+  right: 0;
+  width: 220px;
+  max-width: calc(100vw - 48px);
+  padding: 6px;
+  border: 3px solid var(--brutalist-ink);
+  border-radius: 0;
+  background: var(--brutalist-panel);
+  box-shadow: 5px 5px 0 #000;
+}
+.brutalist-theme .brutalist-menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+  line-height: 1.4;
+  text-align: left;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-menu-item:not(:disabled):hover {
+    background: var(--brutalist-green-soft);
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-menu-item:not(:disabled):active {
+    background: var(--brutalist-green-soft);
+  }
+}
+.brutalist-theme .brutalist-menu-item.is-danger {
+  color: var(--brutalist-red);
+}
+.brutalist-theme .brutalist-codes {
+  min-width: 0;
+}
+.brutalist-theme .brutalist-copy-code {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.brutalist-theme .brutalist-copy-code:disabled {
+  color: var(--brutalist-muted);
+}
+.brutalist-theme .brutalist-otp-value {
+  display: inline-block;
+  font: 900 40px/1.3 var(--brutalist-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+.brutalist-theme .brutalist-otp-value[data-digits="8"] {
+  font-size: 30px;
+  letter-spacing: 0;
+}
+.brutalist-theme
+  .brutalist-otp-value:is([data-digits="9"], [data-digits="10"]) {
+  font-size: 24px;
+  letter-spacing: 0;
+}
+.brutalist-theme .brutalist-copy-symbol {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--brutalist-line);
+  border-radius: 0;
+  font-size: 21px;
+}
+.brutalist-theme .brutalist-otp-next {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--brutalist-muted);
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-otp-next:not(:disabled):hover {
+    color: var(--brutalist-ink);
+    text-decoration: underline;
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-otp-next:not(:disabled):active {
+    color: var(--brutalist-ink);
+    text-decoration: underline;
+  }
+}
+.brutalist-theme .brutalist-next-value {
+  color: var(--brutalist-ink);
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.brutalist-theme .brutalist-code-status,
+.brutalist-theme .brutalist-hotp-label {
+  color: var(--brutalist-muted);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.brutalist-theme .brutalist-code-status {
+  display: block;
+}
+.brutalist-theme .brutalist-hotp-label {
+  display: inline-block;
+  padding: 0 5px;
+  border: 1px solid var(--brutalist-line);
+  border-radius: 0;
+}
+.brutalist-theme .brutalist-expiry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  margin-top: 8px;
+}
+.brutalist-theme .brutalist-expiry-label {
+  display: flex;
+  order: 1;
+  flex: 0 0 auto;
+  gap: 8px;
+  color: var(--brutalist-muted);
+  font-size: 12px;
+}
+.brutalist-theme .brutalist-expiry-label strong {
+  min-width: 3ch;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.brutalist-theme
+  .brutalist-card[data-type="TOTP"]
+  .brutalist-expiry-label
+  > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.brutalist-theme .brutalist-progress {
+  flex: 1 1 auto;
+  height: 10px;
+  border: 2px solid var(--brutalist-ink);
+  overflow: hidden;
+  border-radius: 0;
+  background: var(--brutalist-track);
+}
+.brutalist-theme .brutalist-progress-fill {
+  display: block;
+  width: var(--brutalist-progress, 0%);
+  max-width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--brutalist-ink);
+}
+.brutalist-theme
+  .brutalist-expiry[data-expiring="true"]
+  .brutalist-progress-fill {
+  background: var(--brutalist-amber);
+}
+.brutalist-theme
+  .brutalist-expiry[data-expiring="true"]
+  .brutalist-expiry-label
+  strong {
+  color: var(--brutalist-amber);
+}
+.brutalist-theme .brutalist-empty-state {
+  padding: 55px 24px;
+  border: 2px dashed var(--brutalist-line);
+  border-radius: 0;
+  text-align: center;
+}
+.brutalist-theme .brutalist-empty-state h3 {
+  font-size: 23px;
+}
+.brutalist-theme .brutalist-empty-state p {
+  max-width: 44ch;
+  margin: 10px auto 20px;
+  color: var(--brutalist-muted);
+}
+.brutalist-theme .brutalist-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--brutalist-line);
+  color: var(--brutalist-muted);
+  font-size: 12px;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+/* The 2FA version and project links take their own line under the credit. */
+.brutalist-theme .brutalist-footer-about {
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 24px;
+}
+/* Wide screens keep one row; the head and the links only group them for phones. */
+.brutalist-theme .brutalist-footer-about-head,
+.brutalist-theme .brutalist-footer-links {
+  display: contents;
+}
+@media (max-width: 600px) {
+  /* The version (and a newer release) lead; the links form two even columns,
+     so none is left alone on a line. */
+  .brutalist-theme .brutalist-footer-about {
+    display: grid;
+    gap: 14px;
+  }
+  .brutalist-theme .brutalist-footer-about-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 16px;
+  }
+  .brutalist-theme .brutalist-footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-items: center;
+    gap: 12px 16px;
+  }
+}
+.brutalist-theme .brutalist-footer-version {
+  padding: 2px 8px;
+  border: 2px solid var(--brutalist-ink);
+  color: var(--brutalist-ink);
+  font-family: var(--brutalist-display);
+  font-variant-numeric: tabular-nums;
+}
+/* A newer release is a yellow block, like the masthead's own call to action. */
+.brutalist-theme .brutalist-footer-update {
+  padding: 2px 8px;
+  border: 2px solid var(--brutalist-ink);
+  background: var(--brutalist-yellow);
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+.brutalist-theme button.brutalist-footer-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .brutalist-theme .brutalist-footer-link:hover {
+    color: var(--brutalist-ink);
+    text-decoration-thickness: 3px;
+  }
+  .brutalist-theme .brutalist-footer-update:hover {
+    box-shadow: 3px 3px 0 var(--brutalist-ink);
+  }
+}
+@media (hover: none) {
+  .brutalist-theme .brutalist-footer-link:active {
+    color: var(--brutalist-ink);
+    text-decoration-thickness: 3px;
+  }
+  .brutalist-theme .brutalist-footer-update:active {
+    box-shadow: 3px 3px 0 var(--brutalist-ink);
+  }
+}
+.brutalist-theme .brutalist-license {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 3px solid var(--brutalist-ink);
+  background: var(--brutalist-panel);
+  color: var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-license[hidden] {
+  display: none;
+}
+.brutalist-theme .brutalist-license-text {
+  max-height: 50vh;
+  margin: 0;
+  overflow: auto;
+  font:
+    12px/1.5 ui-monospace,
+    Consolas,
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.brutalist-theme .brutalist-license > button {
+  justify-self: end;
+}
+@media (max-width: 600px) {
+  .brutalist-theme .brutalist-topbar-actions {
+    width: auto;
+  }
+}
+@media (max-width: 360px) {
+  .brutalist-theme .brutalist-topbar-inner {
+    gap: 12px 4px;
+  }
+}
+
+/* Service colors stay attached to the service when filtering or sorting. */
+.brutalist-theme .brutalist-card[data-tone="0"] {
+  background: var(--brutalist-tone-0);
+}
+.brutalist-theme .brutalist-card[data-tone="1"] {
+  background: var(--brutalist-tone-1);
+}
+.brutalist-theme .brutalist-card[data-tone="2"] {
+  background: var(--brutalist-tone-2);
+}
+.brutalist-theme .brutalist-card[data-tone="3"] {
+  background: var(--brutalist-tone-3);
+}
+.brutalist-theme .brutalist-card-header {
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-search {
+  box-shadow: 4px 4px 0 #000;
+}
+.brutalist-theme .brutalist-toolbar [data-action="display"] {
+  min-height: 50px;
+  border: 3px solid var(--brutalist-ink);
+  background: var(--brutalist-panel);
+  box-shadow: 4px 4px 0 #000;
+}
+.brutalist-theme
+  .brutalist-toolbar
+  [data-action="display"][aria-expanded="true"] {
+  background: var(--brutalist-green-soft);
+}
+.brutalist-theme .brutalist-copy-symbol {
+  border: 2px solid var(--brutalist-ink);
+  background: var(--brutalist-panel);
+  color: var(--brutalist-ink);
+}
+.brutalist-theme .brutalist-copy-code {
+  padding: 4px 0;
+}
+.brutalist-theme .brutalist-topbar .brutalist-button.is-quiet:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 #000;
+}
+
+/* The accessible theme clear action replaces the browser search glyph. */
+.brutalist-theme
+  .brutalist-search
+  input[type="search"]::-webkit-search-cancel-button,
+.brutalist-theme
+  .brutalist-search
+  input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.brutalist-theme .brutalist-service-mark.has-icon {
+  overflow: hidden;
+}
+.brutalist-theme .brutalist-service-mark > img {
+  display: block;
+  width: 62%;
+  height: 62%;
+  object-fit: contain;
+}
+
+/* Tapping a card or its menu must not flash the browser's tap highlight over the card. */
+.brutalist-theme .brutalist-card {
+  -webkit-tap-highlight-color: transparent;
+}
